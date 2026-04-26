@@ -24,6 +24,7 @@ metadata/_edit_vertical_guides_ = [-301.0]
 metadata/_edit_use_anchors_ = true
 
 [node name="Background" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_rjqnu")
 layout_mode = 1
 anchors_preset = 15
@@ -64,15 +65,18 @@ stretch_mode = 5
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
-anchor_right = 0.91
-anchor_bottom = 1.0
+anchor_top = 0.538852
+anchor_right = 0.917813
+anchor_bottom = 0.656
 offset_left = 24.0
-offset_top = 526.0
+offset_top = 0.039978
 offset_right = -0.200073
-offset_bottom = -514.0
+offset_bottom = 0.519958
 grow_horizontal = 2
 grow_vertical = 2
-text = "The first of many..."
+bbcode_enabled = true
+text = "[color=black]The first of many[/color][color=#FF0000][font_size=24].[/font_size][/color][color=#00FF00][font_size=48].[/font_size][/color][color=#0000FF][font_size=96].[/font_size][/color]"
+fit_content = true
 
 [node name="NextButton" type="Button" parent="."]
 layout_mode = 1
