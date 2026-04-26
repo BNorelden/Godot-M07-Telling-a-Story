@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://bhrkkyb7nilah"]
+
+[ext_resource type="Shader" uid="uid://cs15e2hgd2lan" path="res://assets/sliding_background.gdshader" id="1_v8wjx"]
+[ext_resource type="Texture2D" uid="uid://bnly1gkbxw6b5" path="res://assets/bubble_pattern.png" id="2_1cblk"]
+[ext_resource type="Texture2D" uid="uid://copkt78vgp37i" path="res://assets/sophia.png" id="3_1cblk"]
+[ext_resource type="Texture2D" uid="uid://d000xjtr4iqtk" path="res://assets/emotion_regular.png" id="4_rjqnu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rjqnu"]
+shader = ExtResource("1_v8wjx")
+shader_parameter/pattern_sampler = ExtResource("2_1cblk")
+shader_parameter/bg_color = Color(0.980392, 0.94902, 0.72549, 1)
+shader_parameter/pattern_color = Color(0.996078, 0.878431, 0.564706, 1)
+shader_parameter/pattern_size = 256.0
+
+[node name="Dialogue" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_horizontal_guides_ = [-57.0, -69.0]
+metadata/_edit_vertical_guides_ = [-301.0]
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_rjqnu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Body" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.459
+anchor_bottom = 1.0
+offset_top = 195.0
+offset_right = -120.28
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_1cblk")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Expression" type="TextureRect" parent="Body"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 74.0
+offset_right = -12.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_rjqnu")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.91
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 526.0
+offset_right = -0.200073
+offset_bottom = -514.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "The first of many..."
+
+[node name="NextButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -59.0
+offset_top = -55.0
+offset_right = -16.0
+offset_bottom = -24.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "next"
