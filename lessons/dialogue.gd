@@ -1,6 +1,8 @@
 extends Control
 
 @onready var next_button: Button = %NextButton
+@onready var next_button_2: Button = %NextButton2
+
 @onready var rich_text_label: RichTextLabel = %RichTextLabel
 
 var dialogue_items: Array[String] = [
@@ -46,6 +48,7 @@ func show_text() -> void:
 func _ready() -> void:
 	show_text()
 	next_button.pressed.connect(advance)
+	next_button_2.pressed.connect(previous)
 
 	
 func advance() -> void:
@@ -56,3 +59,9 @@ func advance() -> void:
 		#show_text()
 	#else:
 	show_text() #once if outside the loops
+
+func previous() -> void:
+	current_item_index -= 1	
+	if current_item_index < 0:
+		current_item_index = dialogue_items.size() -1 #end of array go to the Last index
+	show_text()
