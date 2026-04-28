@@ -115,3 +115,4 @@ grow_vertical = 2
 text = "The second label
 "
 fit_content = true
+metadata/_edit_use_anchors_ = true
