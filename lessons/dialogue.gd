@@ -11,7 +11,8 @@ extends Control
 @onready var rich_text_label: RichTextLabel = %RichTextLabel
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
-
+var sophia_texture = preload("res://assets/sophia.png")
+var pink_texture = preload("res://assets/pink.png")
 
 #var dialogue_items: Array[String] = [
 
@@ -189,6 +190,8 @@ func show_text() -> void:
 	audio_stream_player.play(sound_start_position)
 	
 	tween.finished.connect(audio_stream_player.stop)
+	
+	slide_in()
 
 	
 func _ready() -> void:
@@ -196,8 +199,16 @@ func _ready() -> void:
 	next_button.pressed.connect(advance)
 	next_button_2.pressed.connect(previous)
 
+func current_character() -> void:
+	if body.texture == sophia_texture:
+		body.texture = pink_texture
+	else:
+		body.texture = sophia_texture
 	
 func advance() -> void:
+
+	current_character()
+	
 	current_item_index += 1	
 	if current_item_index == dialogue_items.size():
 		#get_tree().quit() #exits the game
@@ -207,7 +218,21 @@ func advance() -> void:
 	show_text() #once if outside the loops
 
 func previous() -> void:
+	
+	current_character()
+	
 	current_item_index -= 1	
 	if current_item_index < 0:
 		current_item_index = dialogue_items.size() -1 #end of array go to the Last index
 	show_text()
+
+func slide_in() -> void:
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_QUART)
+	tween.set_ease(Tween.EASE_OUT)
+	
+	body.position.x = 200.0
+	tween.tween_property(body, "position:x", 0.0, 0.3)
+	
+	body.modulate.a = 0.0
+	tween.parallel().tween_property(body, "modulate:a", 1.0, 0.2)
