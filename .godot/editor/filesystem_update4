@@ -10,3 +10,6 @@ res://practices/L10.P2.party_members/assets/practice_exercises_theme.tres
 res://lessons/button_purple.tres
 res://lessons/main_theme.tres
 res://lessons/expressions.tscn
+res://lessons/expressions.gd
+res://practices/L8.P1.pick_your_character/pick_your_character.tscn
+res://practices/L8.P1.pick_your_character/pick_your_character.gd
