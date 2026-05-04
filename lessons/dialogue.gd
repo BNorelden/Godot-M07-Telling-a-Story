@@ -11,8 +11,17 @@ extends Control
 @onready var rich_text_label: RichTextLabel = %RichTextLabel
 @onready var audio_stream_player: AudioStreamPlayer = %AudioStreamPlayer
 
-var sophia_texture = preload("res://assets/sophia.png")
-var pink_texture = preload("res://assets/pink.png")
+var bodies: Array[Dictionary] = [
+	
+{
+	"name":"sophia",
+	"texture": preload("res://assets/sophia.png")
+},
+{
+	"name": "pink",
+	"texture": preload("res://assets/pink.png")
+}
+] 
 
 #var dialogue_items: Array[String] = [
 
@@ -181,7 +190,7 @@ func show_text() -> void:
 	
 	
 	var tween := create_tween()
-	var text_appearing_duration := 1.2
+	var text_appearing_duration: float = current_item["text"].length() / 30.0
 	tween.tween_property(rich_text_label, "visible_ratio", 1.0, text_appearing_duration)
 
 	var sound_max_offset := audio_stream_player.stream.get_length() - text_appearing_duration
@@ -200,10 +209,10 @@ func _ready() -> void:
 	next_button_2.pressed.connect(previous)
 
 func current_character() -> void:
-	if body.texture == sophia_texture:
-		body.texture = pink_texture
+	if body.texture == bodies[0]["texture"]:
+		body.texture = bodies[1]["texture"]
 	else:
-		body.texture = sophia_texture
+		body.texture = bodies[0]["texture"]
 	
 func advance() -> void:
 
