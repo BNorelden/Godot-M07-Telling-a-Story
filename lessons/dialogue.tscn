@@ -89,7 +89,7 @@ offset_bottom = 34.02
 grow_horizontal = 2
 grow_vertical = 2
 bbcode_enabled = true
-text = "[color=black]The first of many[/color][color=#FF0000][font_size=24].[/font_size][/color][color=#00FF00][font_size=48].[/font_size][/color][color=#0000FF][font_size=96].[/font_size][/color]"
+text = "[shake][color=black]The first of many[/color][/shake][color=#FF0000][font_size=24].[/font_size][/color][color=#00FF00][font_size=48].[/font_size][/color][color=#0000FF][font_size=96].[/font_size][/color]"
 fit_content = true
 metadata/_edit_use_anchors_ = true
 
