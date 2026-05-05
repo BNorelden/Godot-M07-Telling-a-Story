@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhrkkyb7nilah"]
+[gd_scene load_steps=13 format=3 uid="uid://bhrkkyb7nilah"]
 
 [ext_resource type="Theme" uid="uid://d1ubl85mvogs5" path="res://lessons/main_theme.tres" id="1_5dtme"]
 [ext_resource type="Shader" uid="uid://cs15e2hgd2lan" path="res://assets/sliding_background.gdshader" id="1_v8wjx"]
@@ -16,6 +16,12 @@ shader_parameter/pattern_sampler = ExtResource("2_1cblk")
 shader_parameter/bg_color = Color(0.980392, 0.94902, 0.72549, 1)
 shader_parameter/pattern_color = Color(0.996078, 0.878431, 0.564706, 1)
 shader_parameter/pattern_size = 256.0
+
+[sub_resource type="InputEventAction" id="InputEventAction_xlxck"]
+action = &"advance_text"
+
+[sub_resource type="Shortcut" id="Shortcut_ujubm"]
+events = [SubResource("InputEventAction_xlxck")]
 
 [node name="Dialogue" type="Control"]
 layout_mode = 3
@@ -102,6 +108,7 @@ offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
 theme_override_styles/hover = ExtResource("7_rduj4")
+shortcut = SubResource("Shortcut_ujubm")
 text = "next"
 
 [node name="NextButton2" type="Button" parent="."]
